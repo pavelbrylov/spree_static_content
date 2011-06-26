@@ -1,3 +1,8 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'jquery-ui-1.7.3.custom.min', 'simple_product_translations' %>
+  <%= stylesheet_link_tag 'smoothness/jquery-ui-1.7.3.custom' %>
+<% end %>
+
 <h1><%= t("static_content.editing_page") %></h1>
 <%= render "shared/error_messages", :target => @page %>
 
@@ -8,3 +13,4 @@
     <%= t("or") %> <%= link_to t("actions.cancel"), admin_pages_path %>
   </p>
 <% end %>
+

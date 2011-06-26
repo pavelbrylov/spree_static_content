@@ -1,9 +1,33 @@
 <%= stylesheet_link_tag 'formtastic', 'formtastic_changes' %>
 
+<div id="tabs">
+  <ul>
+    <% I18n.available_locales.each do |l| %>
+      <li><%= link_to t(l), "#tabs-#{l}" %></li>
+    <% end %>
+  </ul>
+  <% I18n.available_locales.each do |l| %>
+    <div id="tabs-<%= l %>">
+      <%= f.globalize_fields_for l do |g| %>
+        <% default_locale = l.to_sym == I18n.default_locale %>
+        <% g = f if default_locale %>
+        <%= f.field_container :title do %>
+          <%= g.label :title, t("title") %> <% if default_locale %><span class="required">*</span><br /><% end %>
+          <%= g.text_field :title, :class => 'fullwidth title'  %>
+          <%= f.error_message_on :title %>
+        <% end %>
+        <%= f.field_container :body do %>
+          <%= g.label :body, t("body")%><br />
+          <%= g.text_area :body, {:cols => 60, :rows => 4, :class => 'fullwidth'} %>
+          <%= f.error_message_on :body %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
 <%= f.inputs do %>
-  <%= f.input :title %>
   <%= f.input :slug %>
-  <%= f.input :body %>
   <%= f.input :foreign_link %>
   <%= f.input :meta_keywords %>
   <%= f.input :meta_description %>
@@ -14,3 +38,6 @@
   <%= f.input :layout %>
   <%= f.input :visible %>
 <% end %>
+
+
+

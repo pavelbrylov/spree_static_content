@@ -1,8 +1,11 @@
 require 'spree_core'
 require 'spree_static_content_hooks'
+require 'batch_translation'
 
 module SpreeStaticContent
   class Engine < Rails::Engine
+    config.autoload_paths += %W(#{config.root}/lib)
+    
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), "../app/**/*_decorator*.rb")) do |c|
         Rails.env == "production" ? require(c) : load(c)
@@ -12,4 +15,3 @@ module SpreeStaticContent
     config.autoload_paths += %W(#{config.root}/lib)
   end
 end
-

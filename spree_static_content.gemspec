@@ -81,16 +81,16 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<spree_core>, [">= 0.60.0"])
       s.add_runtime_dependency(%q<spree_editor>, [">= 0.50.0"])
-      s.add_runtime_dependency(%q<formtastic>, ["~> 1.2.3"])
+      s.add_runtime_dependency(%q<formtastic>, ["~> 1.2.4"])
     else
       s.add_dependency(%q<spree_core>, [">= 0.60.0"])
       s.add_dependency(%q<spree_editor>, [">= 0.50.0"])
-      s.add_dependency(%q<formtastic>, ["~> 1.2.3"])
+      s.add_dependency(%q<formtastic>, ["~> 1.2.4"])
     end
   else
     s.add_dependency(%q<spree_core>, [">= 0.60.0"])
     s.add_dependency(%q<spree_editor>, [">= 0.50.0"])
-    s.add_dependency(%q<formtastic>, ["~> 1.2.3"])
+    s.add_dependency(%q<formtastic>, ["~> 1.2.4"])
   end
 end
 

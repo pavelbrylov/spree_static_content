@@ -1,6 +1,9 @@
 class Page < ActiveRecord::Base
   default_scope :order => "position ASC"
 
+  translates :title, :body
+  accepts_nested_attributes_for :translations
+  
   validates_presence_of :title
   validates_presence_of [:slug, :body], :if => :not_using_foreign_link?
   
